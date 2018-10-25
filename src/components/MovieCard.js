@@ -1,5 +1,6 @@
 import React from 'react';
 import CardHeader from '@material-ui/core/CardHeader';
+import PropTypes from 'prop-types'; 
 
 export class MovieCard extends React.Component {
   render() {
@@ -12,4 +13,11 @@ export class MovieCard extends React.Component {
       </div>
     );
   }
+}
+
+MovieCard.propTypes = {
+  movie: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    snippet: PropTypes.string.isRequired
+  })
 }
