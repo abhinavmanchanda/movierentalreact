@@ -6,10 +6,14 @@ import {Row, Col} from 'react-bootstrap'
 export class MovieCard extends React.Component {
   render() {
     return (
-        <CardHeader
-          title={this.props.movie.name}
-          subheader={this.props.movie.snippet}
-        />
+      <Row>
+      <Col xs={3}>
+        placeholder
+      </Col>
+      <Col xs={9}>
+        {this.props.movie.name}
+      </Col>
+    </Row>
     );
   }
 }
