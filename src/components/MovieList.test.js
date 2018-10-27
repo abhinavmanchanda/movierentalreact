@@ -5,10 +5,10 @@ import {MovieList} from './MovieList';
 
 describe("Movie List", () =>{
   const movies = [{
-      title: "Gunda",
+      name: "Gunda",
       snippet: "Greatest movie of all time."
     },{
-      title: "Tabaahi - The Destroyer",
+      name: "Tabaahi - The Destroyer",
       snippet: "Don't awaken his dark side."
     }
   ];

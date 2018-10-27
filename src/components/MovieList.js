@@ -7,7 +7,7 @@ export class MovieList extends Component {
 
   renderAllMovies = (movies) => {
     return movies.map(movie => {
-      return (<ListGroupItem key={movie.title}>
+      return (<ListGroupItem key={movie.name}>
         <MovieCard key={movie.name} movie={movie} />
       </ListGroupItem>);
     });

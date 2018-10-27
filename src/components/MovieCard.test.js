@@ -5,7 +5,7 @@ import CardHeader from '@material-ui/core/CardHeader';
 
 describe("movie card header", () =>{
   const movie = {
-    title: "Gunda",
+    name: "Gunda",
     snippet: "Greatest movie of all time."
   };
   var shallowWrapper;
