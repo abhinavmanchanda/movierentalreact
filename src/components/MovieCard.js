@@ -17,10 +17,8 @@ export class MovieCard extends React.Component {
   render() {
     return (
       <Card>
-        <CardMedia className="thumbnail"
-        title="Without Quote" style={styles.thumbnail}
-        image="https://images-na.ssl-images-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_QL50_.jpg"
-        />
+        <CardMedia className="thumbnail" title={this.props.movie.name} 
+        style={styles.thumbnail} image={this.props.movie.imageUrl} />
         <CardHeader title={this.props.movie.name} subheader={this.props.movie.snippet} />
       </Card>
     );
@@ -30,6 +28,7 @@ export class MovieCard extends React.Component {
 MovieCard.propTypes = {
   movie: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    snippet: PropTypes.string.isRequired
+    snippet: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string.isRequired
   })
 }
