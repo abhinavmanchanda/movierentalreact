@@ -1,0 +1,1 @@
+export const RESERVE_MOVIE = 'RESERVE_MOVIE'
