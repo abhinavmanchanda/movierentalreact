@@ -1,13 +1,12 @@
 import * as types from '../actions/ActionTypes'
 
-const initialState = {
-  movies: []
-}
+const initialState = []
+
 const MovieReducer = (state = initialState, action) => {
   if (types.TOGGLE_RESERVE_MOVIE === action.type) {
-    return state.movies.map(
+    return state.map(
       movie =>
-        movie.id === action.id ? { ...movie, reserved: !movie.reserved } : movie
+        movie.name === action.name ? { ...movie, reserved: !movie.reserved } : movie
     )
   }
   return state;
