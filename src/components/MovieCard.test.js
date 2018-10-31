@@ -3,12 +3,14 @@ import {shallow} from 'enzyme';
 import {MovieCard} from './MovieCard';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
+import { ReserveButton } from './ReserveButton';
 
 describe("movie card header", () =>{
   const movie = {
     name: "Gunda",
     snippet: "Greatest movie of all time.",
-    imageUrl: 'fake url'
+    imageUrl: 'fake url',
+    reserved: true
   };
   var shallowWrapper;
   beforeEach(() => {
@@ -31,6 +33,11 @@ describe("movie card header", () =>{
   it("the card header should contain movie subtitle.", () => {
     const cardHeaderWrapper = shallowWrapper.find(CardHeader);
     expect(cardHeaderWrapper.props().subheader).toEqual("Greatest movie of all time.");
+  })
+  
+  it("should send reserved flag to the reserve button", () => {
+    const cardHeaderWrapper = shallowWrapper.find(ReserveButton);
+    expect(cardHeaderWrapper.props().reserved).toEqual(true);
   })
   
 });

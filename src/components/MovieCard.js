@@ -21,7 +21,7 @@ export class MovieCard extends React.Component {
         <CardMedia className="thumbnail" title={this.props.movie.name} 
         style={styles.thumbnail} image={this.props.movie.imageUrl} />
         <CardHeader title={this.props.movie.name} subheader={this.props.movie.snippet} />
-        <ReserveButton />
+        <ReserveButton reserved={this.props.movie.reserved}/>
       </Card>
     );
   }
@@ -31,6 +31,7 @@ MovieCard.propTypes = {
   movie: PropTypes.shape({
     name: PropTypes.string.isRequired,
     snippet: PropTypes.string.isRequired,
-    imageUrl: PropTypes.string.isRequired
+    imageUrl: PropTypes.string.isRequired,
+    reserved: PropTypes.bool
   })
 }
