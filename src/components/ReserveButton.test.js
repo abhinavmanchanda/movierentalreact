@@ -11,14 +11,21 @@ describe("Reserve Button", () => {
   }
 
   it("gives the option to return when movie is reserved", () => {
-    verifyText(<ReserveButton reserved={true}/>, "Return")
+    verifyText(<ReserveButton reserved={true} onClick={()=>{}}/>, "Return")
   })
 
   it("gives the option to reserve when movie is not reserved", () => {
-    verifyText(<ReserveButton reserved={false}/>, "Reserve")
+    verifyText(<ReserveButton reserved={false} onClick={()=>{}}/>, "Reserve")
   })
 
   it("gives the option to reserve when reserve flag is not passed", () => {
-    verifyText(<ReserveButton/>, "Reserve")
+    verifyText(<ReserveButton onClick={()=>{}}/>, "Reserve")
+  })
+
+  it("should trigger onclick action on clicking the button", () => {
+    const mockOnClick = jest.fn();
+    const shallowWrapper = shallow(<ReserveButton reserved={true} onClick={mockOnClick}/>);
+    shallowWrapper.find(Button).simulate('click')
+    expect(mockOnClick.mock.calls.length).toEqual(1)
   })
 })

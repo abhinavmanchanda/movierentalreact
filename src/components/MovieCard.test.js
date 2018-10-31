@@ -6,15 +6,16 @@ import CardMedia from '@material-ui/core/CardMedia';
 import { ReserveButton } from './ReserveButton';
 
 describe("movie card header", () =>{
+  const mockReserveFunction = jest.fn();
   const movie = {
     name: "Gunda",
     snippet: "Greatest movie of all time.",
     imageUrl: 'fake url',
-    reserved: true
+    reserved: true,
   };
   var shallowWrapper;
   beforeEach(() => {
-    shallowWrapper = shallow(<MovieCard movie={movie}/>);
+    shallowWrapper = shallow(<MovieCard movie={movie} reserve={mockReserveFunction}/>);
   })
   it("should contain a card header", () => {
     expect(shallowWrapper.find(CardHeader).exists()).toBe(true);
@@ -38,6 +39,13 @@ describe("movie card header", () =>{
   it("should send reserved flag to the reserve button", () => {
     const cardHeaderWrapper = shallowWrapper.find(ReserveButton);
     expect(cardHeaderWrapper.props().reserved).toEqual(true);
+  })
+  
+  it("reserve button click should reserve this movie", () => {
+    const cardHeaderWrapper = shallowWrapper.find(ReserveButton);
+    cardHeaderWrapper.props().onClick()
+    expect(mockReserveFunction.mock.calls.length).toEqual(1)
+    expect(mockReserveFunction.mock.calls[0][0]).toEqual("Gunda")
   })
   
 });

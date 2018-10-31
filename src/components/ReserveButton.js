@@ -6,11 +6,12 @@ export class ReserveButton extends Component {
   render() {
     var text = this.props.reserved?"Return":"Reserve"
     return (
-      <Button variant="contained" color="primary" >{text}</Button>
+      <Button variant="contained" color="primary" onClick={this.props.onClick}>{text}</Button>
     );
   }
 }
 
 ReserveButton.propTypes = {
-  reserved: PropTypes.bool
+  reserved: PropTypes.bool,
+  onClick: PropTypes.func.isRequired
 }

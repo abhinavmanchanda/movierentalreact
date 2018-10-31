@@ -21,7 +21,7 @@ export class MovieCard extends React.Component {
         <CardMedia className="thumbnail" title={this.props.movie.name} 
         style={styles.thumbnail} image={this.props.movie.imageUrl} />
         <CardHeader title={this.props.movie.name} subheader={this.props.movie.snippet} />
-        <ReserveButton reserved={this.props.movie.reserved}/>
+        <ReserveButton reserved={this.props.movie.reserved} onClick={() => this.props.reserve(this.props.movie.name)}/>
       </Card>
     );
   }
