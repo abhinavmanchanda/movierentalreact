@@ -11,7 +11,7 @@ describe("Reserve Button", () => {
   }
 
   it("gives the option to return when movie is reserved", () => {
-    verifyText(<ReserveButton reserved={true} onClick={()=>{}}/>, "Return")
+    verifyText(<ReserveButton reserved={true} onClick={ ()=>{}}/>, "Return")
   })
 
   it("gives the option to reserve when movie is not reserved", () => {

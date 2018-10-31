@@ -4,6 +4,7 @@ import {MovieCard} from './MovieCard';
 import {MovieList} from './MovieList';
 
 describe("Movie List", () =>{
+  var mockReserveFunction;
   const movies = [{
       name: "Gunda",
       snippet: "Greatest movie of all time.",
@@ -16,11 +17,20 @@ describe("Movie List", () =>{
   ];
   var shallowWrapper;
   beforeEach(() => {
-    shallowWrapper = shallow(<MovieList movies={movies}/>);
+    mockReserveFunction = jest.fn();
+    shallowWrapper = shallow(<MovieList movies={movies} reserveMovie={mockReserveFunction}/>);
   })
 
   it("should contain a list of movie cards", () => {
     expect(shallowWrapper.find(MovieCard).length).toEqual(2);
+  });
+
+  it("should send reserve movie function for that movie", () => {
+    expect(shallowWrapper.find(MovieCard).length).toEqual(2);
+    shallowWrapper.find(MovieCard).at(1).props().onReserve()
+    expect(mockReserveFunction.mock.calls.length).toEqual(1)
+    expect(mockReserveFunction.mock.calls[0][0]).toEqual("Tabaahi - The Destroyer")
+
   });
 
 });

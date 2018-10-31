@@ -15,7 +15,7 @@ describe("movie card header", () =>{
   };
   var shallowWrapper;
   beforeEach(() => {
-    shallowWrapper = shallow(<MovieCard movie={movie} reserve={mockReserveFunction}/>);
+    shallowWrapper = shallow(<MovieCard movie={movie} onReserve={mockReserveFunction}/>);
   })
   it("should contain a card header", () => {
     expect(shallowWrapper.find(CardHeader).exists()).toBe(true);
@@ -45,7 +45,6 @@ describe("movie card header", () =>{
     const cardHeaderWrapper = shallowWrapper.find(ReserveButton);
     cardHeaderWrapper.props().onClick()
     expect(mockReserveFunction.mock.calls.length).toEqual(1)
-    expect(mockReserveFunction.mock.calls[0][0]).toEqual("Gunda")
   })
   
 });
